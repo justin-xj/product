@@ -1,1 +1,22 @@
 
+
+#kafka server
+spring:
+  kafka:
+    bootstrap-servers:
+      - 192.168.96.128:9092
+    #producer
+    producer:
+      retries: 0
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    #consumer
+    consumer:
+      group-id: testgroup
+      key-serializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: true
+      auto-commit-interval: 5000
+      auto-offset-reset: latest
+    template:
+      default-topic: test2
